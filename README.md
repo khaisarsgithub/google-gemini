@@ -1,5 +1,5 @@
 # Gemini API Practice
-# Install Requirements ```pip install -r requirements.txt```
+Install Requirements ```pip install -r requirements.txt```
 
 For ChatBot - ```streamlit run qachat.py```
 
