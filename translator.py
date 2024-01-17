@@ -34,17 +34,22 @@ def get_gemini_response(question):
 
 st.set_page_config(page_title="Q&A Demo")
 
-st.header("Gemini Application")
+st.header("Gemini Translator Application")
 
-input=st.text_input("Input: ",key="input")
+input=st.text_input("Input Content: ",key="input")
+lang=st.text_input("Target Language: ",key="lang")
 
 
-submit=st.button("Ask the question")
+submit=st.button("Translate")
 
 ## If ask button is clicked
 
-if submit:
-    
-    response=get_gemini_response(input)
-    st.subheader("The Response is")
-    st.write(response)
+try:
+  if submit:
+      prompt = f"translate the sentences within the ``` into {lang} language  ```#{input}```"
+      response=get_gemini_response(prompt)
+      st.subheader("The Translation is: ")
+      st.write(response)
+except Exception as e:
+   print(e)
+   st.subheader("We are not available in the language you entered yet")
